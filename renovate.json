@@ -1,5 +1,23 @@
 {
-  "extends": [
-    "config:base"
+  "extends": ["config:base"],
+  "labels": ["dependencies"],
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["^k8s.io", "^sigs.k8s.io"],
+      "groupName": "k8s modules"
+    },
+    {
+      "matchPackagePatterns": ["^k8s.io"],
+      "allowedVersions": "< 0.23.0"
+    },
+    {
+      "excludePackagePatterns": ["^k8s.io", "^sigs.k8s.io"],
+      "groupName": "general modules"
+    }
+  ],
+  "postUpdateOptions": ["gomodTidy", "gomodUpdateImportPaths"],
+  "dependencyDashboard": true,
+  "schedule": [
+    "on monday after 9am"
   ]
 }
