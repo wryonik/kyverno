@@ -1,3 +1,5 @@
+name: LGTM
+
 on:
   push:
     branches:
