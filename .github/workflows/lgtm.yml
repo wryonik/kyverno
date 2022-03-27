@@ -1,4 +1,4 @@
-name: LGTM
+name: Nancy
 
 on:
   push:
@@ -8,13 +8,12 @@ on:
       types: [opened, synchronize, reopened]
 
 jobs:
-  lgtm:
+  nancy:
     runs-on: ubuntu-latest
-    name: LGTM
+    name: Nancy
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-    - name: LGTM
-      uses: beeceej/lgtm@v0.0.3
-      env:
-        GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+    - name: Nancy SAST Scan
+      uses: sonatype-nexus-community/nancy-github-action@main
+
