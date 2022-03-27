@@ -1,12 +1,12 @@
-name: "Code Scanning - Action"
+name: "Github CodeQL"
 
 on:
   push:
-    branches: [main]
+    branches:
+      - master
   pull_request:
-    branches: [main]
-  schedule:
-    - cron: '30 1 * * 0'
+      types: [opened, synchronize, reopened]
+
 
 jobs:
   CodeQL-Build:
