@@ -14,6 +14,8 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
+    - name: WriteGoList
+      run: go list -json -m all > go.list
     - name: Nancy SAST Scan
       uses: sonatype-nexus-community/nancy-github-action@main
 
