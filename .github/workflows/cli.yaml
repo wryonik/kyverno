@@ -24,18 +24,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # v2.4.0
+        uses: actions/checkout@d50f8ea76748df49594d9b109b614f3b4db63c71
 
       - name: Unshallow
         run: git fetch --prune --unshallow
 
       - name: Set up Go 
-        uses: actions/setup-go@424fc82d43fa5a37540bae62709ddcc23d9520d4 # v2.1.5
+        uses: actions/setup-go@a5865a93f26fcb9014b34e4be3fb246a9691a281
         with:
           go-version: 1.17
 
       - name: Cache Go modules
-        uses: actions/cache@d9747005de0f7240e5d35a68dca96b3f41b8b340 # v1.2.0
+        uses: actions/cache@2d8d0d1c9b41812b6fd3d4ae064360e7d8762c7b
         with:
           path: ~/go/pkg/mod
           key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}

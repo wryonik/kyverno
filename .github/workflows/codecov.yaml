@@ -19,8 +19,8 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
     steps:
-      - uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # v2.4.0
-      - uses: actions/setup-go@424fc82d43fa5a37540bae62709ddcc23d9520d4 # v2.1.5
+      - uses: actions/checkout@d50f8ea76748df49594d9b109b614f3b4db63c71
+      - uses: actions/setup-go@a5865a93f26fcb9014b34e4be3fb246a9691a281
         with:
           go-version: '1.17'
       -
@@ -28,7 +28,7 @@ jobs:
         run: make code-cov-report
       -
         name: Upload Report to Codecov
-        uses: codecov/codecov-action@f32b3a3741e1053eb607407145bc9619351dc93b # v2.1.0
+        uses: codecov/codecov-action@b049ab51f46ef6cd9c7ca52a856631a818969c7c
         with:
           file: ./coverage.out
           fail_ci_if_error: true

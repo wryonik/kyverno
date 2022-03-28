@@ -15,18 +15,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # v2.4.0
+        uses: actions/checkout@d50f8ea76748df49594d9b109b614f3b4db63c71
 
       - name: Unshallow
         run: git fetch --prune --unshallow
 
       - name: Set up Go
-        uses: actions/setup-go@424fc82d43fa5a37540bae62709ddcc23d9520d4 # v2.1.5
+        uses: actions/setup-go@a5865a93f26fcb9014b34e4be3fb246a9691a281
         with:
           go-version: 1.17
 
       - name: Cache Go modules
-        uses: actions/cache@d9747005de0f7240e5d35a68dca96b3f41b8b340 # v1.2.0
+        uses: actions/cache@2d8d0d1c9b41812b6fd3d4ae064360e7d8762c7b
         with:
           path: ~/go/pkg/mod
           key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
@@ -54,7 +54,7 @@ jobs:
           fi
 
       - name: golangci-lint
-        uses: reviewdog/action-golangci-lint@02bcf8c1a9febe8620f1ca523b18dd64f82296db # v1.25.0
+        uses: reviewdog/action-golangci-lint@5d76ca8ed91cee8dc262f1e6bbe74f4b1bf3f204
 
       - name: Checking unused pkgs using go mod tidy
         run: |
@@ -65,18 +65,18 @@ jobs:
     needs: pre-checks
     steps:
       - name: Checkout
-        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # v2.4.0
+        uses: actions/checkout@d50f8ea76748df49594d9b109b614f3b4db63c71
 
       - name: Unshallow
         run: git fetch --prune --unshallow
 
       - name: Set up Go
-        uses: actions/setup-go@424fc82d43fa5a37540bae62709ddcc23d9520d4 # v2.1.5
+        uses: actions/setup-go@a5865a93f26fcb9014b34e4be3fb246a9691a281
         with:
           go-version: 1.17
 
       - name: Cache Go modules
-        uses: actions/cache@d9747005de0f7240e5d35a68dca96b3f41b8b340 # v1.2.0
+        uses: actions/cache@2d8d0d1c9b41812b6fd3d4ae064360e7d8762c7b
         with:
           path: ~/go/pkg/mod
           key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
@@ -84,10 +84,10 @@ jobs:
             ${{ runner.os }}-go-
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@27d0a4f181a40b142cce983c5393082c365d1480 # v1.2.0
+        uses: docker/setup-qemu-action@2d4bfe71c9c7c6adb935665efb1a651cc8e799ba
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@94ab11c41e45d028884a99163086648e898eed25 # v1.6.0
+        uses: docker/setup-buildx-action@2a6fbda6d8bd6fe40f8b36c71fca20ffc286129e
         id: buildx
         with:
           install: true
@@ -101,18 +101,18 @@ jobs:
     needs: pre-checks
     steps:
       - name: Checkout
-        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # v2.4.0
+        uses: actions/checkout@d50f8ea76748df49594d9b109b614f3b4db63c71
 
       - name: Unshallow
         run: git fetch --prune --unshallow
 
       - name: Set up Go
-        uses: actions/setup-go@424fc82d43fa5a37540bae62709ddcc23d9520d4 # v2.1.5
+        uses: actions/setup-go@a5865a93f26fcb9014b34e4be3fb246a9691a281
         with:
           go-version: 1.17
 
       - name: Cache Go modules
-        uses: actions/cache@d9747005de0f7240e5d35a68dca96b3f41b8b340 # v1.2.0
+        uses: actions/cache@2d8d0d1c9b41812b6fd3d4ae064360e7d8762c7b
         with:
           path: ~/go/pkg/mod
           key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
@@ -120,10 +120,10 @@ jobs:
             ${{ runner.os }}-go-
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@27d0a4f181a40b142cce983c5393082c365d1480 # v1.2.0
+        uses: docker/setup-qemu-action@2d4bfe71c9c7c6adb935665efb1a651cc8e799ba
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@94ab11c41e45d028884a99163086648e898eed25 # v1.6.0
+        uses: docker/setup-buildx-action@2a6fbda6d8bd6fe40f8b36c71fca20ffc286129e
         id: buildx
         with:
           install: true
@@ -146,18 +146,18 @@ jobs:
     needs: pre-checks
     steps:
       - name: Checkout
-        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # v2.4.0
+        uses: actions/checkout@d50f8ea76748df49594d9b109b614f3b4db63c71
 
       - name: Unshallow
         run: git fetch --prune --unshallow
 
       - name: Set up Go
-        uses: actions/setup-go@424fc82d43fa5a37540bae62709ddcc23d9520d4 # v2.1.5
+        uses: actions/setup-go@a5865a93f26fcb9014b34e4be3fb246a9691a281
         with:
           go-version: 1.17
 
       - name: Cache Go modules
-        uses: actions/cache@d9747005de0f7240e5d35a68dca96b3f41b8b340 # v1.2.0
+        uses: actions/cache@2d8d0d1c9b41812b6fd3d4ae064360e7d8762c7b
         with:
           path: ~/go/pkg/mod
           key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
@@ -165,10 +165,10 @@ jobs:
             ${{ runner.os }}-go-
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@27d0a4f181a40b142cce983c5393082c365d1480 # v1.2.0
+        uses: docker/setup-qemu-action@2d4bfe71c9c7c6adb935665efb1a651cc8e799ba
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@94ab11c41e45d028884a99163086648e898eed25 # v1.6.0
+        uses: docker/setup-buildx-action@2a6fbda6d8bd6fe40f8b36c71fca20ffc286129e
         id: buildx
         with:
           install: true

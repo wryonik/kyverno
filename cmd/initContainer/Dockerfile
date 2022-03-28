@@ -1,6 +1,6 @@
 # Multi-stage docker build
 # Build stage
-FROM golang:1.17.6 AS builder
+FROM golang:1.18.0 AS builder
 
 LABEL maintainer="Kyverno"
 
