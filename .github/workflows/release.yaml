@@ -55,10 +55,10 @@ jobs:
   
   create-release:
     runs-on: ubuntu-latest
-    needs:
-      - release-init-kyverno
-      - release-kyverno
-      - release-kyverno-cli
+    # needs:
+    #   - release-init-kyverno
+    #   - release-kyverno
+    #   - release-kyverno-cli
     steps:
       - name: Set version
         id: version
