@@ -5,7 +5,7 @@ on:
       - 'helm-chart-v*'
 
 permissions: 
-  contents: read
+  contents: read-only
 
 jobs:
   helm-tests:
