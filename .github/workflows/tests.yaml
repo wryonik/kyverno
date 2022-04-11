@@ -9,8 +9,7 @@ on:
       - 'main'
       - 'release*'
 
-permissions: 
-  contents: read-only
+permissions: read-only
 
 jobs:
   pre-checks:
