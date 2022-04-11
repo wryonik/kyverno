@@ -17,7 +17,8 @@ on:
       - 'docs/**'
       - '.github/config.yml'
 
-permissions: read-all
+permissions:
+  contents: read
 
 jobs:
   e2e-test:

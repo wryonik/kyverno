@@ -4,8 +4,8 @@ on:
     tags:
       - 'helm-chart-v*'
 
-permissions: 
-  contents: read-all
+permissions:
+  contents: read
 
 jobs:
   helm-tests:

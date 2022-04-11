@@ -8,7 +8,8 @@ on:
       - charts/**
       - .github/workflows/helm-test.yaml
 
-permissions: read-all
+permissions:
+  contents: read
 
 jobs:
   helm-tests:

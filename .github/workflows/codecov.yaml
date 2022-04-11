@@ -10,7 +10,8 @@ on:
       - 'main'
       - 'release*'
 
-permissions: read-all
+permissions:
+  contents: read
 
 jobs:
   codecov:

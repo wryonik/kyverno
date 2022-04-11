@@ -5,7 +5,8 @@ on:
       - 'main'
       - 'release*'
 
-permissions: read-all
+permissions:
+  contents: read
 
 jobs:
   push-init-kyverno:
