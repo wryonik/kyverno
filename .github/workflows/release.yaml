@@ -4,8 +4,7 @@ on:
     tags:
       - 'v*'
 
-permissions: 
-  contents: read-all
+permissions: read-all
 
 jobs:
   # release-init-kyverno:
