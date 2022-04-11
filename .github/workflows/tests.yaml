@@ -10,7 +10,7 @@ on:
       - 'release*'
 
 permissions: 
-  contents: read
+  contents: read-only
 
 jobs:
   pre-checks:
