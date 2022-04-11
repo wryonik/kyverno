@@ -5,8 +5,8 @@ on:
       - 'kyverno-chart-v*'
       - 'kyverno-policies-chart-v*'
 
-permissions: 
-  contents: read-all
+permissions:
+  contents: read
 
 jobs:
   helm-tests:

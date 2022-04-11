@@ -23,8 +23,8 @@ on:
       registry_password:
         required: true
 
-permissions: 
-  contents: read-all
+permissions:
+  contents: read
 
 jobs:
   build:
