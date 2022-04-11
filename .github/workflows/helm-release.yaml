@@ -5,6 +5,9 @@ on:
       - 'kyverno-chart-v*'
       - 'kyverno-policies-chart-v*'
 
+permissions: 
+  contents: read
+
 jobs:
   helm-tests:
     runs-on: ubuntu-latest
@@ -26,6 +29,9 @@ jobs:
         run: ct lint --target-branch=main --check-version-increment=false
 
   create-release:
+    permissions: 
+      packages: write
+      id-token: write
     runs-on: ubuntu-latest
     needs: helm-tests
     steps:
