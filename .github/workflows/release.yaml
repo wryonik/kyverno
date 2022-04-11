@@ -92,7 +92,18 @@ jobs:
           mkdir release
           make release-notes > release/release-notes.out
           cat release/release-notes.out
-          
+      
+      - name: Generate provenance
+        uses: slsa-framework/github-actions-demo@v0.1
+        with:
+          output_path: provenance.json
+
+      - name: Upload provenance
+        uses: actions/upload-artifact@v2
+        with:
+          name: provenance.json
+          path: provenance.json
+
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@5df302e5e9e4c66310a6b6493a8865b12c555af2 #v2.8.0
         with:
