@@ -10,6 +10,7 @@ permissions: read-all
 jobs:
   push-init-kyverno:
     permissions:
+      content: read
       packages: write
       id-token: write
     uses: kyverno/kyverno/.github/workflows/reuse.yaml@main
@@ -24,6 +25,7 @@ jobs:
 
   push-kyverno:
     permissions:
+      content: read
       packages: write
       id-token: write
     uses: kyverno/kyverno/.github/workflows/reuse.yaml@main
@@ -38,6 +40,7 @@ jobs:
 
   push-kyverno-cli:
     permissions:
+      content: read
       packages: write
       id-token: write
     uses: kyverno/kyverno/.github/workflows/reuse.yaml@main
