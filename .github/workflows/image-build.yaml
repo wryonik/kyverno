@@ -7,8 +7,6 @@ on:
 
 permissions: 
   contents: read
-  packages: write
-  id-token: write 
 
 jobs:
   pre-checks:
@@ -99,6 +97,9 @@ jobs:
   build-kyverno:
     runs-on: ubuntu-latest
     needs: pre-checks
+    permissions:
+      packages: write
+      id-token: write 
     steps:
       - name: Checkout
         uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # v2.4.0
@@ -144,6 +145,9 @@ jobs:
   build-kyverno-cli:
     runs-on: ubuntu-latest
     needs: pre-checks
+    permissions:
+      packages: write
+      id-token: write
     steps:
       - name: Checkout
         uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # v2.4.0
