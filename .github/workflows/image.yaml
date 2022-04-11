@@ -9,6 +9,9 @@ permissions: read-all
 
 jobs:
   push-init-kyverno:
+    permissions:
+      packages: write
+      id-token: write
     uses: kyverno/kyverno/.github/workflows/reuse.yaml@main
     with:
       publish_command: docker-publish-initContainer
@@ -20,6 +23,9 @@ jobs:
       registry_password: ${{ secrets.CR_PAT }}
 
   push-kyverno:
+    permissions:
+      packages: write
+      id-token: write
     uses: kyverno/kyverno/.github/workflows/reuse.yaml@main
     with:
       publish_command: docker-publish-kyverno
@@ -31,6 +37,9 @@ jobs:
       registry_password: ${{ secrets.CR_PAT }}
 
   push-kyverno-cli:
+    permissions:
+      packages: write
+      id-token: write
     uses: kyverno/kyverno/.github/workflows/reuse.yaml@main
     with:
       publish_command: docker-publish-cli
