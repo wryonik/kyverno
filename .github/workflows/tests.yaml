@@ -9,7 +9,7 @@ on:
       - 'main'
       - 'release*'
 
-permissions: read-only
+permissions: read-all
 
 jobs:
   pre-checks:

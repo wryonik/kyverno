@@ -6,7 +6,7 @@ on:
       - 'kyverno-policies-chart-v*'
 
 permissions: 
-  contents: read-only
+  contents: read-all
 
 jobs:
   helm-tests:

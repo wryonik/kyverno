@@ -5,7 +5,7 @@ on:
       - 'v*'
 
 permissions: 
-  contents: read-only
+  contents: read-all
 
 jobs:
   release-init-kyverno:
