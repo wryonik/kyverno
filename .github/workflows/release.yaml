@@ -94,12 +94,12 @@ jobs:
           cat release/release-notes.out
       
       - name: Generate provenance
-        uses: slsa-framework/github-actions-demo@v0.1
+        uses: slsa-framework/github-actions-demo@9474e92bbf825d5b4b46810fc9367dfc73429a2a
         with:
           output_path: provenance.json
 
       - name: Upload provenance
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@82c141cc518b40d92cc801eee768e7aafc9c2fa2
         with:
           name: provenance.json
           path: provenance.json
