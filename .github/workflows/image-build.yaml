@@ -183,7 +183,7 @@ jobs:
           arguments: --repository "${IMAGE_NAME}" --output-path "${PROVENANCE_FILE}" --digest "${IMAGE_DIGEST}" --tags "${IMAGE_TAGS}"
         env:
           COSIGN_EXPERIMENTAL: 0
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          GITHUB_TOKEN: "${{ secrets.PERSONAL_ACCESS_TOKEN }}"
           IMAGE_TAGS: ${{ needs.docker.outputs.image-tags }}
 
       - name: Login to ghcr.io
@@ -191,7 +191,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 
       - name: Attach provenance
         run: |
