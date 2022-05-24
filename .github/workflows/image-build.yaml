@@ -7,7 +7,7 @@ on:
 
 env:
   COSIGN_EXPERIMENTAL: 1
-  IMAGE_NAME: ghcr.io/kyverno/kyverno
+  IMAGE_NAME: ghcr.io/wryonik/kyverno
 
 permissions:
   contents: read
