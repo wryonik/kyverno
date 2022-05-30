@@ -22,7 +22,7 @@ jobs:
       tag: image
     secrets:
       registry_username: ${{ github.actor }}
-      registry_password: ${{ secrets.CR_PAT }}
+      registry_password: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 
   push-kyverno:
     permissions:
@@ -37,7 +37,7 @@ jobs:
       tag: image
     secrets:
       registry_username: ${{ github.actor }}
-      registry_password: ${{ secrets.CR_PAT }}
+      registry_password: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 
   push-kyverno-cli:
     permissions:
@@ -52,4 +52,4 @@ jobs:
       tag: image
     secrets:
       registry_username: ${{ github.actor }}
-      registry_password: ${{ secrets.CR_PAT }}
+      registry_password: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
