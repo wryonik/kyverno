@@ -137,8 +137,8 @@ jobs:
           subcommand: container
           arguments: --repository kyverno --output-path provenance.att --digest $IMAGE_DIGEST --tags "v1.7.3"
         env:
-          COSIGN_EXPERIMENTAL: 0
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          # COSIGN_EXPERIMENTAL: 0
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           IMAGE_TAGS: ${{ needs.docker.outputs.image-tags }}
 
       - name: Login to ghcr.io
