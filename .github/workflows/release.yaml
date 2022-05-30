@@ -21,37 +21,37 @@ jobs:
       registry_username: ${{ github.actor }}
       registry_password: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 
-  # release-kyverno:
-  #   permissions:
-  #     contents: read
-  #     packages: write
-  #     id-token: write
-  #   uses: kyverno/kyverno/.github/workflows/reuse.yaml@main
-  #   with:
-  #     publish_command: docker-publish-kyverno
-  #     digest_command: docker-get-kyverno-digest
-  #     image_name: kyverno
-  #     tag: release
-  #     main: cmd/kyverno
-  #   secrets:
-  #     registry_username: ${{ github.actor }}
-  #     registry_password: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+  release-kyverno:
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+    uses: kyverno/kyverno/.github/workflows/reuse.yaml@main
+    with:
+      publish_command: docker-publish-kyverno
+      digest_command: docker-get-kyverno-digest
+      image_name: kyverno
+      tag: release
+      main: cmd/kyverno
+    secrets:
+      registry_username: ${{ github.actor }}
+      registry_password: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 
-  # release-kyverno-cli:
-  #   permissions:
-  #     contents: read
-  #     packages: write
-  #     id-token: write
-  #   uses: kyverno/kyverno/.github/workflows/reuse.yaml@main
-  #   with:
-  #     publish_command: docker-publish-cli
-  #     digest_command: docker-get-cli-digest
-  #     image_name: kyverno-cli
-  #     tag: release
-  #     main: cmd/cli/kubectl-kyverno
-  #   secrets:
-  #     registry_username: ${{ github.actor }}
-  #     registry_password: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+  release-kyverno-cli:
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+    uses: kyverno/kyverno/.github/workflows/reuse.yaml@main
+    with:
+      publish_command: docker-publish-cli
+      digest_command: docker-get-cli-digest
+      image_name: kyverno-cli
+      tag: release
+      main: cmd/cli/kubectl-kyverno
+    secrets:
+      registry_username: ${{ github.actor }}
+      registry_password: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
   
   create-release:
     runs-on: ubuntu-latest
