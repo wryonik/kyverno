@@ -10,7 +10,7 @@ jobs:
       contents: read
       packages: write
       id-token: write
-    uses: kyverno/kyverno/.github/workflows/reuse.yaml@main
+    uses: wryonik/kyverno/.github/workflows/reuse.yaml@main
     with:
       publish_command: docker-publish-initContainer
       digest_command: docker-get-initContainer-digest
@@ -26,7 +26,7 @@ jobs:
       contents: read
       packages: write
       id-token: write
-    uses: kyverno/kyverno/.github/workflows/reuse.yaml@main
+    uses: wryonik/kyverno/.github/workflows/reuse.yaml@main
     with:
       publish_command: docker-publish-kyverno
       digest_command: docker-get-kyverno-digest
@@ -42,7 +42,7 @@ jobs:
       contents: read
       packages: write
       id-token: write
-    uses: kyverno/kyverno/.github/workflows/reuse.yaml@main
+    uses: wryonik/kyverno/.github/workflows/reuse.yaml@main
     with:
       publish_command: docker-publish-cli
       digest_command: docker-get-cli-digest
@@ -138,17 +138,17 @@ jobs:
           echo "::set-output name=image-digest::${image_digest}"
           echo "::set-output name=image-tags::${image_tags}"
 
-      # - name: Generate provenance
-      #   uses: philips-labs/slsa-provenance-action@v0.7.2
-      #   with:
-      #     command: generate
-      #     subcommand: container
-      #     arguments: --repository ${{ steps.container_info.outputs.container_repos }} --output-path provenance.att --digest ${{ steps.container_info.outputs.image-digest }} --tags ${{ steps.container_info.outputs.image-tags }}
-      #   env:
-      #     # COSIGN_EXPERIMENTAL: 0
-      #     IMAGE_DIGEST: ${{ needs.docker.outputs.image-digest }}
-      #     GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-      #     # IMAGE_TAGS: ${{ needs.docker.outputs.image-tags }}
+      - name: Generate provenance
+        uses: philips-labs/slsa-provenance-action@v0.7.2
+        with:
+          command: generate
+          subcommand: container
+          arguments: --repository ${{ steps.container_info.outputs.container_repos }} --output-path provenance.att --digest ${{ steps.container_info.outputs.image-digest }} --tags ${{ steps.container_info.outputs.image-tags }}
+        env:
+          # COSIGN_EXPERIMENTAL: 0
+          IMAGE_DIGEST: ${{ needs.docker.outputs.image-digest }}
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          # IMAGE_TAGS: ${{ needs.docker.outputs.image-tags }}
 
       - name: Login to ghcr.io
         uses: docker/login-action@v1.14.1

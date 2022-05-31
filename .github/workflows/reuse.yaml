@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      packages: write
+      # packages: write
       id-token: write
     steps:
       - name: Checkout release
@@ -152,16 +152,18 @@ jobs:
         run: |
           echo "::set-output name=digest::$(make ${{inputs.digest_command}})"
 
+
       - name: Generate provenance
         uses: philips-labs/slsa-provenance-action@v0.7.2
         with:
           command: generate
           subcommand: container
-          arguments: --repository kyverno --output-path provenance.att --digest ${{ steps.get-step-image.outputs.digest }} --tags ${{ steps.container_info.outputs.image-tags }}
+          arguments: --repository wryonik/kyverno --output-path provenance.att --digest ${{ steps.get-step-image.outputs.digest }} --tags ${{ steps.container_info.outputs.image-tags }}
         env:
           # COSIGN_EXPERIMENTAL: 0
           IMAGE_DIGEST: ${{ needs.docker.outputs.image-digest }}
           GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+
 
       - name: Sign image
         if: ${{inputs.tag == 'image' && steps.extract_branch.outputs.branch == 'main'}}
