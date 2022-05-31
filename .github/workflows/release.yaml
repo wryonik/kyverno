@@ -114,7 +114,7 @@ jobs:
 
   provenance:
     runs-on: ubuntu-latest
-    needs: create-release
+    # needs: create-release
 
     permissions:
       packages: write
@@ -138,6 +138,7 @@ jobs:
           arguments: --repository kyverno --output-path provenance.att --digest $IMAGE_DIGEST --tags "v1.7.3"
         env:
           # COSIGN_EXPERIMENTAL: 0
+          IMAGE_DIGEST: ${{ needs.docker.outputs.image-digest }}
           GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           IMAGE_TAGS: ${{ needs.docker.outputs.image-tags }}
 
