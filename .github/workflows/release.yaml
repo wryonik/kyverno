@@ -133,8 +133,8 @@ jobs:
       - name: Get container info
         id: container_info
         run: |
-          image_digest="$(docker inspect "${IMAGE_NAME}:v1.7.3" --format '{{ index .RepoDigests 0 }}' | awk -F '@' '{ print $2 }')"
-          image_tags="v1.7.3,${GITHUB_REF_NAME},$(git rev-parse "${GITHUB_REF_NAME:-HEAD}")"
+          image_digest="$(docker inspect "${IMAGE_NAME}:v1.7.51" --format '{{ index .RepoDigests 0 }}' | awk -F '@' '{ print $2 }')"
+          image_tags="v1.7.51,${GITHUB_REF_NAME},$(git rev-parse "${GITHUB_REF_NAME:-HEAD}")"
           echo "::set-output name=image-digest::${image_digest}"
           echo "::set-output name=image-tags::${image_tags}"
 
