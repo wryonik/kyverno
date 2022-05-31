@@ -157,7 +157,7 @@ jobs:
         with:
           command: generate
           subcommand: container
-          arguments: --repository wryonik/kyverno --output-path provenance.att --digest ${{ steps.get-step-image.outputs.digest }} --tags ${{ steps.container_info.outputs.image-tags }}
+          arguments: --repository kyverno --output-path provenance.att --digest ${{ steps.get-step-image.outputs.digest }} --tags ${{ steps.container_info.outputs.image-tags }}
         env:
           # COSIGN_EXPERIMENTAL: 0
           IMAGE_DIGEST: ${{ needs.docker.outputs.image-digest }}
