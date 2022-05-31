@@ -130,12 +130,20 @@ jobs:
         with:
           cosign-release: v1.6.0
 
+      - name: Get container info
+        id: container_info
+        run: |
+          image_digest="$(docker inspect "${IMAGE_NAME}:v1.7.3" --format '{{ index .RepoDigests 0 }}' | awk -F '@' '{ print $2 }')"
+          image_tags="v1.7.3,${GITHUB_REF_NAME},$(git rev-parse "${GITHUB_REF_NAME:-HEAD}")"
+          echo "::set-output name=image-digest::${image_digest}"
+          echo "::set-output name=image-tags::${image_tags}"
+
       - name: Generate provenance
         uses: philips-labs/slsa-provenance-action@v0.7.2
         with:
           command: generate
           subcommand: container
-          arguments: --repository wryonik/kyverno --output-path provenance.att --digest $IMAGE_DIGEST --tags "v1.7.3"
+          arguments: --repository ${{ steps.container_info.outputs.container_repos }} --output-path provenance.att --digest ${{ steps.container_info.outputs.container_digest }} --tags ${{ steps.container_info.outputs.container_tags }}
         env:
           # COSIGN_EXPERIMENTAL: 0
           IMAGE_DIGEST: ${{ needs.docker.outputs.image-digest }}
